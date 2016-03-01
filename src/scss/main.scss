@@ -2,6 +2,7 @@
 @import '../../dist/bower_components/bourbon/app/assets/stylesheets/bourbon';
 // $visual-grid: true;
 @import '../../dist/bower_components/neat/app/assets/stylesheets/neat';
+@import "../../dist/bower_components/css-modal/modal";
 
 // Palette //
 $primary0: rgba( 40, 40, 40,1); // Primary color //
@@ -36,7 +37,39 @@ body {
   padding-top: 100vh;
 }
 
-section {
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective-origin-x: 100%;
+}
+.parallax__layer {
+  background: $primary3;
+  opacity: .5;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  transform-origin-x: 100%;
+}
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+.parallax__layer--back {
+  transform: translateZ(-1px) scale(2);
+}
+.parallax__layer--deep {
+  transform: translateZ(-2px) scale(3);
+}
+.parallax__group {
+  height: 100vh;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+section, footer {
   overflow: auto;
 }
 
@@ -62,19 +95,19 @@ h2 {
   text-transform: uppercase;
 
   @include media(min-width 600px max-width 999px) {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
 
   @include media(min-width 1000px) {
-    font-size: 3.5rem;
+    font-size: 2.9rem;
   }
 }
 
 h3 {
-  display: none;
+  font-size: 1.7rem;
 
-  @include media(min-width 600px max-width 999px) {
-    display: block;
+  @include media(min-width 600px) {
+    font-size: 1.8rem;
   }
 }
 
@@ -82,14 +115,23 @@ a {
   text-decoration: none;
 }
 
+ul {
+  // columns: 2;
+}
+
 .hero {
   background: url("../assets/header.jpg") no-repeat 30% / cover;
+  background-clip: content-box;
   height: 100vh;
+  padding: 40px;
   position: fixed;
   text-align: right;
   top: 0;
   width: 100vw;
-  z-index: 0;
+  z-index: -1;
+  h1, h2, h3 {
+    margin: 4vw 4vw 0 4vw;
+  }
 }
 
 .stickyNav {
@@ -119,7 +161,8 @@ a {
 }
 
 main {
-  background: #f2f2e8;
+  @include outer-container(100%);
+  background: $primary2;
   position: relative;
 }
 
@@ -128,10 +171,13 @@ main {
   width: 100vw;
   top: 0;
 }
+
 .section {
+  @include span-columns(12);
   border-top: 0.2rem solid $primary0;
-  margin: 2rem 0;
+  margin: 0;
   position: relative;
+  padding: 4rem;
 
   @include media(min-width 600px max-width 999px) {
     @include span-columns(11);
@@ -142,4 +188,62 @@ main {
     @include span-columns(10);
     @include shift(1);
   }
+
+  h1 {
+    font-size: 1.2rem;
+    font-weight: lighter;
+  }
+}
+
+footer {
+  @include outer-container(100%);
+  background: rgba( 40, 40, 40,.95);
+  color: $primary3;
+  height: 100vh;
+  padding-top: 80px;
+  text-align: center;
+
+  a {
+    color: $primary3;
+  }
+}
+
+.logo {
+
+}
+
+.adr {
+
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.url {
+
+}
+
+.email {
+
+}
+
+.tel {
+
+}
+
+.map {
+  margin: 5vw;
+  height: 50vw;
+  width: 90vw;
+}
+
+.copyright {
+  font-size: 14px;
+  font-weight: lighter;
+  color: $primary1;
+}
+
+.modal {
+    @extend %modal;
 }

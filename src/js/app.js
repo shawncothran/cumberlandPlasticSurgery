@@ -4,7 +4,7 @@ $(document).ready(function(){
   $(window).resize(function(){
     $(document).scroll(function(){
 
-      if( $(this).scrollTop() > $('.hero').height() - 80) {
+      if( $(this).scrollTop() > $(window).height() - 80) {
         $('.stickyNav').addClass('stickyNavScrolled');
       } else {
         $('.stickyNav').removeClass('stickyNavScrolled');

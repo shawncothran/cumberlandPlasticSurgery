@@ -1,0 +1,81 @@
+$Burger: (
+  color: #222,
+  height: 3px,
+  offset: 8px,
+  transitionDuration: 100ms,
+  width: 25px
+);
+
+.Burger {
+  margin-bottom: setting('offset', $Burger);
+  margin-top: setting('offset', $Burger);
+  position: relative;
+
+  &,
+  &:before,
+  &:after {
+    background-color: setting('color', $Burger);
+    border-radius: setting('height', $Burger);
+    display: block;
+    height: setting('height', $Burger);
+    transition-duration: setting('transitionDuration', $Burger);
+    transition-property: background-color, transform;
+    width: setting('width', $Burger);
+
+    .-light & {
+      background-color: #fff;
+    }
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+  }
+
+  &:before {
+    top: -#{setting('offset', $Burger)};
+  }
+
+  &:after {
+    top: setting('offset', $Burger);
+  }
+
+  // States
+
+  .Button.-burger.is-active &,
+  .Button.-burger:focus & {
+    background-color: transparent;
+  }
+
+  .Button.-burger.is-active &:before,
+  .Button.-burger:focus &:before {
+    transform: translateY(setting('offset', $Burger)) rotate(45deg);
+  }
+
+  .Button.-burger.is-active &:after,
+  .Button.-burger:focus &:after {
+    transform: translateY(-#{setting('offset', $Burger)}) rotate(-45deg);
+  }
+
+  // Modifiers
+
+  .Button.-burger & {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .Button.-burger.-left & {
+    left: 20px;
+    right: auto;
+  }
+
+  .Button.-burger.-right & {
+    left: auto;
+    right: 20px;
+  }
+}
