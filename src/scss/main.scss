@@ -37,41 +37,9 @@ body {
   padding-top: 100vh;
 }
 
-.parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  perspective-origin-x: 100%;
-}
-.parallax__layer {
-  background: $primary3;
-  opacity: .5;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  transform-origin-x: 100%;
-}
-.parallax__layer--base {
-  transform: translateZ(0);
-}
-.parallax__layer--back {
-  transform: translateZ(-1px) scale(2);
-}
-.parallax__layer--deep {
-  transform: translateZ(-2px) scale(3);
-}
-.parallax__group {
-  height: 100vh;
-  position: relative;
-  transform-style: preserve-3d;
-}
-
-section, footer {
-  overflow: auto;
-}
+// section, footer {
+//   overflow: auto;
+// }
 
 h1 {
   font-size: 3rem;
@@ -120,7 +88,9 @@ ul {
 }
 
 .hero {
-  background: url("../assets/header.jpg") no-repeat 30% / cover;
+  background: linear-gradient(rgba(105,155,255,0.3) 25%,
+                              rgba(155,105,255,0.3) 50%),
+              url("/assets/hero.jpg") no-repeat 30%/cover;
   background-clip: content-box;
   height: 100vh;
   padding: 40px;
@@ -157,13 +127,13 @@ ul {
       text-shadow: 0rem 0rem 0.2rem $secondaryB0;
       transition: all ease-in-out 500ms;
     }
-  }
-}
 
-main {
-  @include outer-container(100%);
-  background: $primary2;
-  position: relative;
+    &.active {
+      color: $secondaryA0;
+      text-shadow: 0rem 0rem 0.2rem $secondaryB0;
+      transition: all ease-in-out 500ms;
+    }
+  }
 }
 
 .stickyNavScrolled {
@@ -172,12 +142,17 @@ main {
   top: 0;
 }
 
-.section {
+main {
+  @include outer-container(100%);
+  position: relative;
+}
+
+section {
   @include span-columns(12);
+  background: $primary2;
   border-top: 0.2rem solid $primary0;
   margin: 0;
   position: relative;
-  padding: 4rem;
 
   @include media(min-width 600px max-width 999px) {
     @include span-columns(11);
@@ -242,6 +217,39 @@ footer {
   font-size: 14px;
   font-weight: lighter;
   color: $primary1;
+}
+
+.parallax {
+  clear: both;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+  perspective-origin-x: 100%;
+}
+.parallax__layer {
+  background: $primary3;
+  opacity: .5;
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  transform-origin-x: 100%;
+}
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+.parallax__layer--back {
+  transform: translateZ(-1px) scale(2);
+}
+.parallax__layer--deep {
+  transform: translateZ(-2px) scale(3);
+}
+.parallax__group {
+  height: 100vh;
+  position: relative;
+  transform-style: preserve-3d;
 }
 
 .modal {
