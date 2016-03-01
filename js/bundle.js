@@ -9845,6 +9845,13 @@ $(document).ready(function () {
       } else {
         $('.stickyNav').removeClass('stickyNavScrolled');
       }
+
+      $('.stickyNav__anchor').each(function () {
+        if ($(this.hash).position().top - 81 <= $(window).scrollTop()) {
+          $('.stickyNav__anchor.active').removeClass('active');
+          $(this).addClass('active');
+        }
+      });
     });
   }).resize();
 });
