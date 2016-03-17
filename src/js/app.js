@@ -22,7 +22,7 @@ $(document).ready(function(){
 });
 
 $(function() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
+  $('a[href*="#"]:not([href="#"]):not([href*="#modal"])').click(function() {
 
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
         || location.hostname == this.hostname) {
@@ -34,11 +34,6 @@ $(function() {
         $('body').animate({
           scrollTop: target.offset().top - 80
         }, 720);
-
-        // $(".slider").animate({
-        //   top: $(this).position().top,
-        //   left: $(this).width()
-        // }, 720);
 
         return false;
       }
