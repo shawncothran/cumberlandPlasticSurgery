@@ -2,20 +2,17 @@
 @import '../../dist/bower_components/bourbon/app/assets/stylesheets/bourbon';
 // $visual-grid: true;
 @import '../../dist/bower_components/neat/app/assets/stylesheets/neat';
-
 // Palette //
 $primary0: rgba( 40, 40, 40,1); // Primary color //
 $primary1: rgba( 90, 90, 90,1);
 $primary2: rgba(229,229,229,1);
 $primary3: rgba(255,255,255,1);
-$secondary0: rgba(  0,153,255,1); // Secondary color (1) //
+$secondary0: rgba( 0,153,255,1); // Secondary color //
 $secondary1: rgba(233,242,249,1);
 $secondary2: rgba(156,196,228,1);
-
 html {
   font-size: 62.5%;
 }
-
 body {
   background: $primary3;
   color: $primary0;
@@ -25,87 +22,80 @@ body {
   padding-top: 100vh;
   line-height: 1.3;
 }
-
 h1 {
   font-size: 3rem;
-  letter-spacing: .3rem;
+  letter-spacing: 0.3rem;
   text-shadow: 0 0.2rem 0.3rem rgba(0,0,0,.4);
   text-transform: uppercase;
-
   @include media(min-width 600px max-width 999px) {
     font-size: 3rem;
-    letter-spacing: .3rem;
+    letter-spacing: 0.3rem;
   }
-
   @include media(min-width 1000px) {
     font-size: 4rem;
-    letter-spacing: .4rem;
+    letter-spacing: 0.4rem;
   }
 }
-
 h2 {
   font-size: 2rem;
   text-transform: uppercase;
-
   @include media(min-width 600px max-width 999px) {
     font-size: 2.4rem;
   }
-
   @include media(min-width 1000px) {
     font-size: 2.9rem;
   }
 }
-
 h3 {
   font-size: 1.7rem;
-
   @include media(min-width 600px) {
     font-size: 1.8rem;
   }
 }
-
 a {
   text-decoration: none;
-}
+  color: $primary1;
+  text-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+  transition: color ease-in-out 200ms;
 
+  &:hover {
+    color: $secondary0;
+    transition: color ease-in-out 200ms;
+  }
+}
 ul {
   // columns: 2;
 }
-
 .hero {
-  background: linear-gradient(rgba(105,155,255,0.3) 25%,
-                              rgba(155,105,255,0.3) 50%),
-              url("/assets/img/hero.jpg") no-repeat 30%/cover;
+  background: linear-gradient(rgba(105,155,255,0.3) 25%, rgba(155,105,255,0.3) 50%), url(/assets/img/hero.jpg) no-repeat 30%/cover;
   background-clip: content-box;
   color: $primary3;
-  height: 100vh;
   padding: 40px;
   position: fixed;
   text-align: right;
   top: 0;
   width: 100vw;
   z-index: -1;
-  h1, h2, h3 {
-    margin: 4vw 4vw 0 4vw;
+  h1,
+  h2,
+  h3 {
+    margin: 4vw 4vw 0;
   }
   h2 {
-    margin-top: 0rem;
+    margin-top: 0;
     line-height: 2rem;
   }
 }
-
 .hero__logo-svg {
   fill: #59b7a9;
   height: 400px;
   width: 300px;
 }
-
 .hero__logo-png {
   height: 60vmin;
-  filter: invert(0) opacity(0.87);
+  filter:invert(0) opacity(0.87);
   top: 55.2% !important;
 }
-
 .stickyNav {
   background: rgba( 40, 40, 40,.93);
   bottom: 80px;
@@ -116,117 +106,105 @@ ul {
   text-align: center;
   width: 100vw;
   z-index: 900;
-
   .stickyNav__anchor {
     color: $primary3;
     font-weight: bold;
     line-height: 8rem;
     padding: 0 7vw 0 0;
     transition: color ease 500ms;
-
-    &::last
-
-    &:hover {
+    &::last &:hover {
       color: $secondary0;
       transition: color ease-in-out 500ms;
     }
-
     &.active {
       color: $secondary0;
       transition: color ease-in-out 500ms;
     }
   }
-
   .stickyNav__anchor:last-child {
     padding: 0;
   }
 }
-
 .stickyNavScrolled {
   position: fixed;
   width: 100vw;
   top: 0;
 }
-
 main {
   @include outer-container(100%);
   position: relative;
 }
-
 section {
   @include span-columns(12);
   background: $primary3;
   position: relative;
   padding: 40px;
-
   h1 {
     font-size: 1.2rem;
     font-weight: lighter;
   }
-
   @include media(min-width 600px max-width 999px) {
     padding: 80px;
   }
-
   @include media(min-width 1000px) {
     padding: 140px;
   }
 }
-
-.iframe {
-  display: block;
-  text-decoration: none;
+fieldset {
+  border: none;
 }
-
+.page {
+  height: 100vh
+}
 footer {
   @include outer-container(100%);
   background: rgba( 40, 40, 40,.95);
   color: $primary3;
-  height: 100vh;
   overflow: hidden;
   padding-top: 80px;
   text-align: center;
-
   a {
     color: $primary3;
   }
 }
-
-.logo {
-
-}
-
-.adr {
-
-}
-
+.logo {}
+.adr {}
 .hidden {
   visibility: hidden;
 }
-
-.url {
-
-}
-
-.email {
-
-}
-
-.tel {
-
-}
-
+.url {}
+.email {}
+.tel {}
 .map {
+  border: none;
   margin: 5vw;
   height: 50vw;
   width: 90vw;
 }
-
 .copyright {
   font-size: 14px;
   font-weight: lighter;
   color: $primary1;
 }
+
+// modifiers ///////////////////////////////////////////////////////////////////
+
+.-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.-small {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.-block {
+  display: block;
+}
+
+// parallax ////////////////////////////////////////////////////////////////////
 
 .parallax {
   clear: both;
@@ -238,12 +216,12 @@ footer {
 }
 .parallax__layer {
   background: $primary3;
-  opacity: .5;
+  opacity: 0.5;
   position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   transform-origin-x: 100%;
 }
 .parallax__layer--base {
@@ -260,88 +238,81 @@ footer {
   position: relative;
   transform-style: preserve-3d;
 }
-
 .image-inline {
   width: 100vw;
   display: block;
   margin: 0;
   padding: 0;
-  // margin: 20px 17vw;
-  // border: 10px solid $secondary2;
-  // outline: 20px solid $primary1;
-  // filter: drop-shadow(2px 2px 5px #000);
 }
-
-.-centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .-parallax {
   height: 60vmin;
 }
 
-.-small {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-}
+// modal ///////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 iframe {
   height: 80vh;
   width: 80vw;
 }
+.iframe {
+  display: block;
+  text-decoration: none;
+}
 .modalDialog {
-    position: fixed;
-    font-family: Arial, Helvetica, sans-serif;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 900;
-    opacity:0;
-    transition: opacity 400ms ease-in;
-    pointer-events: none;
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 900;
+  transform-style: preserve-3d;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+  pointer-events: none;
 }
 .modalDialog:target {
-    opacity:1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
-.modalDialog > div {
-    width: 85vw;
-    position: relative;
-    margin: 10% auto;
-    padding: 5px 20px 13px 20px;
-    border-radius: 10px;
-    background: #fff;
-    background: -moz-linear-gradient(#fff, #999);
-    background: -webkit-linear-gradient(#fff, #999);
-    background: -o-linear-gradient(#fff, #999);
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88vw;
+  padding: 5px 20px 13px;
+  border-radius: 10px;
+  overflow: scroll;
+  max-height: 88vh;
+  background: #fff;
+  background: linear-gradient(#fff, #999);
 }
 .modalClose {
-    background: #606061;
-    color: #FFFFFF;
-    line-height: 25px;
-    position: absolute;
-    right: -12px;
-    text-align: center;
-    top: -10px;
-    width: 24px;
-    text-decoration: none;
-    font-weight: bold;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
-    -moz-box-shadow: 1px 1px 3px #000;
-    -webkit-box-shadow: 1px 1px 3px #000;
-    box-shadow: 1px 1px 3px #000;
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 1px 1px 3px #000;
 }
 .modalClose:hover {
-    background: #00d9ff;
+  background: #00d9ff;
+}
+.close {
+  color: $primary2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0;
+  padding: 14px;
+  line-height: 16px;
+  font-size: 20px;
 }
