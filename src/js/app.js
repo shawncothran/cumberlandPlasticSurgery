@@ -12,7 +12,7 @@ $(document).ready(function() {
       }
 
       $('.stickyNav__anchor').each(function() {
-        if ($(this.hash).position().top - 82 <= $(window).scrollTop()) {
+        if ($(this.hash).position().top - 77 <= $(window).scrollTop()) {
           $('.stickyNav__anchor.active').removeClass('active');
 
           $(this).addClass('active');
@@ -23,7 +23,7 @@ $(document).ready(function() {
 });
 
 $(function() {
-  $('a[href*="#"]:not([href="#"]):not([href*="#modal"])').click(function() {
+  $('a[href*="#"]:not([href="#"]):not([href*="#modal"])').on('click', function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 
       var target = $(this.hash);
