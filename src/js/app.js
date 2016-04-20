@@ -4,7 +4,7 @@ $(document).ready(function() {
   $(window).resize(function() {
     $(document).scroll(function() {
 
-      if ($(this).scrollTop() > $(window).height() - 80) {
+      if ($(this).scrollTop() > $(window).height() - 85) {
         $('.stickyNav').addClass('stickyNavScrolled');
 
       } else {
@@ -12,9 +12,9 @@ $(document).ready(function() {
       }
 
       $('.stickyNav__anchor').each(function() {
-        if ($(this.hash).position().top - 77 <= $(window).scrollTop()) {
+        if (($(this.hash).position().top - 85) < $(window).scrollTop()){
+          console.log('hi');
           $('.stickyNav__anchor.active').removeClass('active');
-
           $(this).addClass('active');
         }
       });
@@ -31,7 +31,7 @@ $(function() {
 
       if (target.length) {
         $('body').animate({
-          scrollTop: target.offset().top - 80
+          scrollTop: target.offset().top - 85
         }, 720);
 
         return false;

@@ -113,7 +113,7 @@ $secondary2: rgba(156,196,228,1);
 .hero {
   color: $primary3;
   height: 100vh;
-  padding: 4rem;
+  padding: 8rem 4rem 4rem;
   text-align: right;
   height: 100vh;
   position: fixed;
@@ -402,6 +402,14 @@ fieldset {
     text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
     transition: all ease-in-out 200ms;
   }
+}
+
+.-padding {
+  padding: 20px 40px;
+}
+
+.-inline-block {
+  display: inline-block;
 }
 
 .-button {
