@@ -96,6 +96,7 @@ $secondary2: rgba(156,196,228,1);
   // min-height: 100vh;
   padding: 120px 40px 40px 80px;
   position: relative;
+  z-index: 2;
 
   @include media(min-width 500px max-width 899px) {
     padding: 80px;
@@ -365,6 +366,7 @@ fieldset {
   color: $primary1;
   font-size: 14px;
   font-weight: lighter;
+  text-decoration: none;
 }
 
 // modifiers
