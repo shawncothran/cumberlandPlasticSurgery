@@ -1,8 +1,8 @@
 {
-  "name": "ironyard-boilerplate",
+  "name": "boilerplate",
   "version": "0.1.0",
   "authors": [
-    "William Golden <egdelwonk@gmail.com>"
+    "Shawn Cothran <heyshawncothran@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
@@ -14,7 +14,6 @@
   ],
   "dependencies": {
     "normalize-css": "normalize.css#~3.0.3",
-    "neat": "~1.7.2",
-    "css-modal": "~1.4.1"
+    "neat": "~1.7.2"
   }
 }

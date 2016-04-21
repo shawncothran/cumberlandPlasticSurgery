@@ -3,17 +3,17 @@ var $ = require('jQuery');
 $(document).ready(function() {
   $(window).resize(function() {
     $(document).scroll(function() {
+      var nav = '.stickyNav';
 
-      if ($(this).scrollTop() > $(window).height() - 85) {
-        $('.stickyNav').addClass('stickyNavScrolled');
+      if ($(this).scrollTop() > $(window).height() - $(nav).height()) {
+        $(nav).addClass('stickyNavScrolled');
 
       } else {
-        $('.stickyNav').removeClass('stickyNavScrolled');
+        $(nav).removeClass('stickyNavScrolled');
       }
 
       $('.stickyNav__anchor').each(function() {
-        if (($(this.hash).position().top - 85) < $(window).scrollTop()){
-          console.log('hi');
+        if (($(this.hash).position().top - $(nav).height()) < $(window).scrollTop()){
           $('.stickyNav__anchor.active').removeClass('active');
           $(this).addClass('active');
         }
@@ -27,11 +27,11 @@ $(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 
       var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      target = target.length ? target : $(`[name=$(this.hash.slice(1))]`);
 
       if (target.length) {
         $('body').animate({
-          scrollTop: target.offset().top - 85
+          scrollTop: target.offset().top
         }, 720);
 
         return false;
