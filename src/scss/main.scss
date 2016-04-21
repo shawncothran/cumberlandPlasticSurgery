@@ -397,6 +397,12 @@ fieldset {
   text-transform: uppercase;
 }
 
+.-medium {
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
 .-block {
   display: block;
 }
@@ -405,9 +411,10 @@ fieldset {
   color: $secondary0;
   text-shadow: 0px 0px 0px rgba(0,0,0,0.0);
   transition: all ease-in-out 200ms;
+  font-weight: 900;
 
   &:hover {
-    text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
+    filter: brightness(120%);
     transition: all ease-in-out 200ms;
   }
 }
@@ -427,6 +434,8 @@ fieldset {
   font-variant: small-caps;
   font-weight: 900;
   letter-spacing: 0.4px;
+  line-height: 4rem;
+  margin: 0 3vw;
   padding: 10px 15px;
   text-transform: capitalize;
   white-space: nowrap;
