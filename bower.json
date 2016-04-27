@@ -12,8 +12,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "normalize-css": "normalize.css#~3.0.3",
-    "neat": "~1.7.2"
-  }
+  "dependencies": {}
 }

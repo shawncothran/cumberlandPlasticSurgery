@@ -1,7 +1,7 @@
 {
-  "name": "ironyard-boilerplate",
+  "name": "boilerplate",
   "version": "0.1.0",
-  "description": "New Project starting point.",
+  "description": "Project starting point.",
   "main": "gulpfile.js",
   "scripts": {
     "postinstall": "bower install && gulp",

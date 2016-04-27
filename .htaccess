@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^cumberlandplasticsurgery.com
+RewriteRule (.*) http://www.cumberlandplasticsurgery.com/$1 [R=301,L]
+
+ErrorDocument 404 http://www.cumberlandplasticsurgery.com/
