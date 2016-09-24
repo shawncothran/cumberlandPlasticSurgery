@@ -2,7 +2,7 @@
   "name": "boilerplate",
   "version": "0.1.0",
   "authors": [
-    "Shawn Cothran <heyshawncothran@gmail.com>"
+    "Shawn Cothran <hey@shawncothran.com>"
   ],
   "license": "MIT",
   "ignore": [
@@ -10,10 +10,16 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "dist/bower_components"
   ],
   "dependencies": {
+    "bourbon": "^4.2.7",
     "normalize-css": "normalize.css#^4.1.1",
     "neat": "^1.7.4"
-  }
+  },
+  "homepage": "http://cumberlandplasticsurgery.com",
+  "description": "",
+  "main": "",
+  "moduleType": []
 }
