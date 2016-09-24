@@ -146,10 +146,6 @@ $secondary2: rgba(156,196,228,1);
   padding: 9rem 0 0 0;
   text-align: center;
   min-height: 100vh;
-
-  .link {
-    color: $primary3;
-  }
 }
 
 .slide__content {
@@ -367,6 +363,7 @@ $secondary2: rgba(156,196,228,1);
   width: 45px;
 
   &:hover {
+    color: $secondary0;
     fill: $secondary0;
     transition: color ease-in-out 200ms;
   }
